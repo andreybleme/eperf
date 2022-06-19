@@ -36,8 +36,8 @@ int handle_tp(struct xdp_md *ctx)
     __u32 ip_dst = iph->daddr;
     bpf_printk("[XDP] destination ip: %u", ip_dst);
 
-	int pkt_sz = data_end - data;
-	bpf_printk("[XDP] packet size: %d\n", pkt_sz);
+    int pkt_sz = data_end - data;
+    bpf_printk("[XDP] packet size: %d\n", pkt_sz);
 
     return XDP_PASS;
 }

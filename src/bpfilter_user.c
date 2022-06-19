@@ -20,7 +20,7 @@
 static int BPFILTER_IFINDEX;
 
 /* eBPF program ID */
-static __u32 BPFILTER_IFINDEX;
+static __u32 EQUIC_PROG_ID;
 
 static unsigned int BPFILTER_XDP_FLAGS = XDP_FLAGS_UPDATE_IF_NOEXIST;
 
@@ -40,7 +40,7 @@ void bpfilter_sigint_callback (int signal)
     exit(EXIT_FAILURE);
   }
 
-  if ( prog_id == BPFILTER_IFINDEX ) {
+  if ( prog_id == EQUIC_PROG_ID ) {
 
     bpf_set_link_xdp_fd(BPFILTER_IFINDEX, -1, BPFILTER_XDP_FLAGS);
     printf("[bpfilter] Action=Unload, Type=BPF, InterfaceIndex=%d\n", BPFILTER_IFINDEX);
@@ -130,7 +130,7 @@ void bpfilter_load (bpfilter_t *bpfilter)
     printf("[bpfilter] Error=%s, Type=BPF, Function=bpf_obj_get_info_by_fd\n", strerror(errno));
     exit(EXIT_FAILURE);
   }
-  BPFILTER_IFINDEX = info.id;
+  EQUIC_PROG_ID = info.id;
 
   printf("[bpfilter] Action=Setup, Type=BPF, Hook=XDP\n");
 }

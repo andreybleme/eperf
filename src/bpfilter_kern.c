@@ -39,7 +39,7 @@ int handle_tp(struct xdp_md *ctx)
 	int pkt_sz = data_end - data;
 	bpf_printk("[XDP] packet size: %d\n", pkt_sz);
 
-  return XDP_PASS;
+    return XDP_PASS;
 }
 
 

@@ -32,7 +32,7 @@ IFACE ?= eth0
 
 #
 # ==============
-# Target rules 
+# Target rules
 #
 .DEFAULT_GOAL: help
 
@@ -57,14 +57,12 @@ help: welcome
 
 .PHONY: welcome
 welcome:
-	@echo " _            __ _ _ _              "     
-	@echo "| |          / _(_) | |             "
-	@echo "| |__  _ __ | |_ _| | |_ ___ _ __   "
-	@echo "| '_ \| '_ \|  _| | | __/ _ \ '__|  "
-	@echo "| |_) | |_) | | | | | ||  __/ |     "
-	@echo "|_.__/| .__/|_| |_|_|\__\___|_|     "
-	@echo "      | |                           "
-	@echo "      |_|                           "
+	@echo "     ______          __ "
+	@echo "     | ___ \        / _|"
+	@echo "  ___| |_/ /__ _ __| |_ "
+	@echo " / _ \  __/ _ \ '__|  _|"
+	@echo "|  __/ | |  __/ |  | |  "
+	@echo " \___\_|  \___|_|  |_|  "
 
 
 #

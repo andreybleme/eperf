@@ -45,3 +45,11 @@ From within the client container, use bombardier to send 10 reqs:
 ```
 /go/pkg/mod/github.com/codesenberg/bombardier@v1.2.5# go run . -c 1 -n 10 172.18.0.3
 ```
+
+Benchmarking tools usually require a server listening to requests coming from a given port.
+After creating the Node server, make sure you're exporting port 8000 during the "docker run" command:
+
+
+```
+$ docker run -it -p 8000:8000 --privileged bpfilter:1.0.0
+```

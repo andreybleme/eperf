@@ -13,7 +13,7 @@
 SEC("bpfilter")
 int handle_tp(struct xdp_md *ctx)
 {
-    bpf_printk("[XDP] starting xdp ip filter");
+    bpf_printk("\n[XDP] starting xdp ip filter\n");
 
     void *data_end = (void *)(long)ctx->data_end;
     void *data     = (void *)(long)ctx->data;
@@ -36,10 +36,10 @@ int handle_tp(struct xdp_md *ctx)
     __u32 ip_dst = iph->daddr;
     bpf_printk("[XDP] destination ip: %u", ip_dst);
 
-    int pkt_sz = data_end - data;
-    bpf_printk("[XDP] packet size: %d\n", pkt_sz);
+	int pkt_sz = data_end - data;
+	bpf_printk("[XDP] packet size: %d", pkt_sz);
 
-    return XDP_PASS;
+  return XDP_PASS;
 }
 
 

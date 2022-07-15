@@ -1,0 +1,26 @@
+ping data: (nanoseconds block duration bpf_ktime_get_ns)
+121
+122
+58
+201
+25
+180
+185
+619
+187
+132
+130
+129
+86
+141
+
+bombardier data: (4k/second) with the cat (200k pkts)
+18
+24
+22
+25
+26
+28
+25
+29
+23

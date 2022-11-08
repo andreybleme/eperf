@@ -1,6 +1,10 @@
 # bpfilter
 
-Simple eBPF + XDP tool to filter network packets.
+A plain simple eBPF + XDP program to process network packets.
+
+This dummy application listen for incoming TCP packets printing its source and destination IP, and pkt size.
+
+There is also a map insert/update operation that changfes a BPF_MAP for every incoming pkt (see [bpfilter_kern.c](https://github.com/andreybleme/eperf/blob/master/src/bpfilter_kern.c) file). It works as a simple demo for BPF map operations, highlighting a few performance aspects of eBPF when we share data between kernel and user space.
 
 -----
 
@@ -38,16 +42,16 @@ $ docker network connect bpfilter da460234fb42
 ```
 
 After connecting to the docker network, there is a new IFACE: eth2.
-It might be necessary to compile the eBPF code again attaching the XDP program into the new IFACE.
+It might be necessary to compile the eBPF program again attaching the XDP program into the new IFACE.
 
-From within the client container, use bombardier to send 10 reqs:
+From within the client container, use bombardier to send 10 pkts:
 
 ```
 /go/pkg/mod/github.com/codesenberg/bombardier@v1.2.5# go run . -c 1 -n 10 172.18.0.3
 ```
 
 Benchmarking tools usually require a server listening to requests coming from a given port.
-After creating the Node server, make sure you're exporting port 8000 during the "docker run" command:
+If you want to see accurate results, you can run a Node server, making sure you're exporting port 8000 during the "docker run" command:
 
 
 ```

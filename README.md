@@ -4,7 +4,7 @@ A plain simple eBPF + XDP program to process network packets.
 
 This dummy application listen for incoming TCP packets printing its source and destination IP, and pkt size.
 
-There is also a map insert/update operation that changfes a BPF_MAP for every incoming pkt (see [bpfilter_kern.c](https://github.com/andreybleme/eperf/blob/master/src/bpfilter_kern.c) file). It works as a simple demo for BPF map operations, highlighting a few performance aspects of eBPF when we share data between kernel and user space.
+There is also a map insert/update operation that changes a BPF_MAP for every incoming pkt (see [bpfilter_kern.c](https://github.com/andreybleme/eperf/blob/master/src/bpfilter_kern.c) file). It works as a simple demo for BPF map operations, highlighting a few performance aspects of eBPF when we share data between kernel and user space.
 
 -----
 
